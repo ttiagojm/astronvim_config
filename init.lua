@@ -33,7 +33,7 @@ return {
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
+          --"ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" 
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -50,8 +50,17 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+    	"ocamllsp"
     },
+    config = {
+      ocamllsp = function()
+        return{
+          cmd = {"ocamllsp"};
+          filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" };
+          root_dir = require("lspconfig.util").root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace");
+        }
+      end,
+    }
   },
 
   -- Configure require("lazy").setup() options

@@ -17,5 +17,23 @@ return {
         -- previous configuration 
 
     end
+  },
+  {
+   'nvim-lua/plenary.nvim',
+   lazy=false,
+   config = function()
+
+        -- previous configuration
+
+    end
+  },
+  {
+    'sbdchd/neoformat',
+    lazy=false,
+    config = function()
+
+        -- previous configuration
+
+    end
   }
 }
